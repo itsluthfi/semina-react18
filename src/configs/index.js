@@ -1,5 +1,5 @@
 const config = {
-  api_host_dev: import.meta.env.REACT_APP_HOST_DEV,
+  api_host_dev: import.meta.env.VITE_HOST_DEV,
 };
 
 export { config };
