@@ -34,12 +34,12 @@ function SNavbar() {
   return (
     <Navbar bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">Dashboard</Navbar.Brand>
+        <Navbar.Brand href="/dashboard">Dashboard</Navbar.Brand>
         <Nav className="me-auto">
           <NavLink
             role={role}
             roles={accessCategories.lihat}
-            action={() => navigate('/')}
+            action={() => navigate('/dashboard')}
           >
             Home
           </NavLink>
@@ -64,13 +64,6 @@ function SNavbar() {
           >
             Payment
           </NavLink>
-          {/* <NavLink
-            role={role}
-            roles={organizers.lihat}
-            action={() => navigate('/organizers')}
-          >
-            Oranizer
-          </NavLink> */}
           <NavLink
             role={role}
             roles={accessEvents.lihat}
