@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Card, Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import SAlert from '../../components/Alert';
@@ -9,7 +9,6 @@ import { userLogin } from '../../redux/auth/actions';
 
 function PageSignin() {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
   const [form, setForm] = useState({
     email: '',
@@ -30,18 +29,16 @@ function PageSignin() {
 
   const handleSubmit = async () => {
     setIsLoading(true);
-
-    try {
-      const res = await postData('/cms/auth/signin', form);
-
+    const res = await postData(`/cms/auth/signin`, form);
+    if (res?.data?.data) {
       dispatch(userLogin(res.data.data.token, res.data.data.role));
       setIsLoading(false);
       navigate('/');
-    } catch (err) {
+    } else {
       setIsLoading(false);
       setAlert({
         status: true,
-        message: err?.response?.data?.msg ?? 'Internal server error',
+        message: res?.response?.data?.msg ?? 'Internal server error',
         type: 'danger',
       });
     }
