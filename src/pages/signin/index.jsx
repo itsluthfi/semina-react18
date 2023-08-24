@@ -7,9 +7,10 @@ import { postData } from '../../utils/fetch';
 import { useDispatch } from 'react-redux';
 import { userLogin } from '../../redux/auth/actions';
 
-function PageSignin() {
+export default function PageSignin() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const [form, setForm] = useState({
     email: '',
     password: '',
@@ -63,5 +64,3 @@ function PageSignin() {
     </Container>
   );
 }
-
-export default PageSignin;

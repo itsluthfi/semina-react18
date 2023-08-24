@@ -8,10 +8,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setNotif } from '../../redux/notif/actions';
 
-function PaymentsEdit() {
+export default function PaymentsEdit() {
   const { paymentId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     type: '',
     role: '',
@@ -132,8 +133,8 @@ function PaymentsEdit() {
   return (
     <Container>
       <SBreadCrumb
-        textSecound={'Payments'}
-        urlSecound={'/payments'}
+        textSecond={'Payments'}
+        urlSecond={'/payments'}
         textThird="Edit"
       />
       {alert.status && <SAlert type={alert.type} message={alert.message} />}
@@ -147,5 +148,3 @@ function PaymentsEdit() {
     </Container>
   );
 }
-
-export default PaymentsEdit;

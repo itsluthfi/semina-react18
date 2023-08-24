@@ -8,9 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setNotif } from '../../redux/notif/actions';
 
-function PaymentsCreate() {
+export default function PaymentsCreate() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     type: '',
     role: '',
@@ -115,8 +116,8 @@ function PaymentsCreate() {
   return (
     <Container>
       <SBreadCrumb
-        textSecound={'Payments'}
-        urlSecound={'/payments'}
+        textSecond={'Payments'}
+        urlSecond={'/payments'}
         textThird="Create"
       />
       {alert.status && <SAlert type={alert.type} message={alert.message} />}
@@ -129,5 +130,3 @@ function PaymentsCreate() {
     </Container>
   );
 }
-
-export default PaymentsCreate;

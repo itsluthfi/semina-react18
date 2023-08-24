@@ -62,7 +62,7 @@ function SNavbar() {
             roles={accessPayments.lihat}
             action={() => navigate('/payments')}
           >
-            Payment
+            Payments
           </NavLink>
           <NavLink
             role={role}

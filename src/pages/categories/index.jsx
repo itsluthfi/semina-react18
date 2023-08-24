@@ -12,11 +12,12 @@ import { deleteData } from '../../utils/fetch';
 import { setNotif } from '../../redux/notif/actions';
 import { accessCategories } from '../../const/access';
 
-function Categories() {
+export default function CategoriesPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const notif = useSelector((state) => state.notif);
   const categories = useSelector((state) => state.categories);
+
   const [access, setAccess] = useState({
     tambah: false,
     hapus: false,
@@ -28,7 +29,7 @@ function Categories() {
       ? JSON.parse(localStorage.getItem('auth'))
       : {};
     const access = { tambah: false, hapus: false, edit: false };
-    Object.keys(accessCategories).forEach(function (key, index) {
+    Object.keys(accessCategories).forEach(function (key) {
       if (accessCategories[key].indexOf(role) >= 0) {
         access[key] = true;
       }
@@ -71,7 +72,7 @@ function Categories() {
 
   return (
     <Container className="mt-3">
-      <SBreadCrumb textSecound={'Categories'} />
+      <SBreadCrumb textSecond={'Categories'} />
 
       {access.tambah && (
         <Button
@@ -98,5 +99,3 @@ function Categories() {
     </Container>
   );
 }
-
-export default Categories;

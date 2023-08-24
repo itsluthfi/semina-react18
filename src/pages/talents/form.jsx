@@ -3,7 +3,7 @@ import Button from '../../components/Button';
 import TextInputWithLabel from '../../components/TextInputWithLabel';
 import { config } from '../../configs';
 
-export default function SpeakersForm({
+export default function TalentsForm({
   handleSubmit,
   form,
   handleChange,

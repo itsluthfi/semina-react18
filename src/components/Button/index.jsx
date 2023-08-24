@@ -1,5 +1,4 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import { Button } from 'react-bootstrap';
 
 function SButton({
   children,
@@ -18,7 +17,7 @@ function SButton({
       disabled={disabled}
       size={size}
     >
-      {loading ? "Loading..." : children}
+      {loading ? 'Loading...' : children}
     </Button>
   );
 }

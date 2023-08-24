@@ -1,23 +1,24 @@
 import { useEffect, useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import BreadCrumb from '../../components/Breadcrumb';
+import SBreadCrumb from '../../components/Breadcrumb';
 import Button from '../../components/Button';
 import Table from '../../components/TableWithAction';
 import SearchInput from '../../components/SearchInput';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchTalents, setKeyword } from '../../redux/talents/actions';
-import AlertMessage from '../../components/Alert';
+import SAlert from '../../components/Alert';
 import Swal from 'sweetalert2';
 import { deleteData } from '../../utils/fetch';
 import { setNotif } from '../../redux/notif/actions';
 import { accessTalents } from '../../const/access';
 
-function TalentsPage() {
+export default function TalentsPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const notif = useSelector((state) => state.notif);
   const talents = useSelector((state) => state.talents);
+
   const [access, setAccess] = useState({
     tambah: false,
     hapus: false,
@@ -29,7 +30,7 @@ function TalentsPage() {
       ? JSON.parse(localStorage.getItem('auth'))
       : {};
     const access = { tambah: false, hapus: false, edit: false };
-    Object.keys(accessTalents).forEach(function (key, index) {
+    Object.keys(accessTalents).forEach(function (key) {
       if (accessTalents[key].indexOf(role) >= 0) {
         access[key] = true;
       }
@@ -72,7 +73,7 @@ function TalentsPage() {
 
   return (
     <Container className="mt-3">
-      <BreadCrumb textSecound={'Talents'} />
+      <SBreadCrumb textSecond={'Talents'} />
 
       {access.tambah && (
         <div className="mb-3">
@@ -85,7 +86,7 @@ function TalentsPage() {
       />
 
       {notif.status && (
-        <AlertMessage type={notif.typeNotif} message={notif.message} />
+        <SAlert type={notif.typeNotif} message={notif.message} />
       )}
 
       <Table
@@ -100,5 +101,3 @@ function TalentsPage() {
     </Container>
   );
 }
-
-export default TalentsPage;

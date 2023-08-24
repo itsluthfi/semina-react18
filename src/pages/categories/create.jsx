@@ -8,9 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setNotif } from '../../redux/notif/actions';
 
-function CategoryCreate() {
+export default function CategoryCreate() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     name: '',
   });
@@ -55,8 +56,8 @@ function CategoryCreate() {
   return (
     <Container>
       <SBreadCrumb
-        textSecound={'Categories'}
-        urlSecound={'/categories'}
+        textSecond={'Categories'}
+        urlSecond={'/categories'}
         textThird="Create"
       />
       {alert.status && <SAlert type={alert.type} message={alert.message} />}
@@ -69,5 +70,3 @@ function CategoryCreate() {
     </Container>
   );
 }
-
-export default CategoryCreate;

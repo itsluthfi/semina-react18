@@ -1,4 +1,3 @@
-import React from 'react';
 import { Form } from 'react-bootstrap';
 import SButton from '../../components/Button';
 import TextInputWithLabel from '../../components/TextInputWithLabel';

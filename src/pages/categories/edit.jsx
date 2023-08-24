@@ -8,10 +8,11 @@ import { getData, putData } from '../../utils/fetch';
 import { useDispatch } from 'react-redux';
 import { setNotif } from '../../redux/notif/actions';
 
-function CategoryEdit() {
+export default function CategoryEdit() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { categoryId } = useParams();
+
   const [form, setForm] = useState({
     name: '',
   });
@@ -66,8 +67,8 @@ function CategoryEdit() {
   return (
     <Container className="mt-3">
       <SBreadCrumb
-        textSecound={'Categories'}
-        urlSecound={'/categories'}
+        textSecond={'Categories'}
+        urlSecond={'/categories'}
         textThird="Edit"
       />
       {alert.status && <SAlert type={alert.type} message={alert.message} />}
@@ -81,5 +82,3 @@ function CategoryEdit() {
     </Container>
   );
 }
-
-export default CategoryEdit;

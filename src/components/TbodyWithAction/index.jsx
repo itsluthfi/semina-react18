@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../Button';
 import { useNavigate } from 'react-router-dom';
 import { Image, Spinner } from 'react-bootstrap';

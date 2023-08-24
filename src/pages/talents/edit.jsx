@@ -8,10 +8,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setNotif } from '../../redux/notif/actions';
 
-function TalentsEdit() {
+export default function TalentsEdit() {
   const { talentId } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const [form, setForm] = useState({
     name: '',
     role: '',
@@ -133,8 +134,8 @@ function TalentsEdit() {
   return (
     <Container>
       <SBreadCrumb
-        textSecound={'Talents'}
-        urlSecound={'/talents'}
+        textSecond={'Talents'}
+        urlSecond={'/talents'}
         textThird="Edit"
       />
       {alert.status && <SAlert type={alert.type} message={alert.message} />}
@@ -148,5 +149,3 @@ function TalentsEdit() {
     </Container>
   );
 }
-
-export default TalentsEdit;

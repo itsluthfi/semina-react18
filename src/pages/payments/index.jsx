@@ -12,11 +12,12 @@ import { deleteData } from '../../utils/fetch';
 import { setNotif } from '../../redux/notif/actions';
 import { accessPayments } from '../../const/access';
 
-function PaymentsPage() {
+export default function PaymentsPage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const notif = useSelector((state) => state.notif);
   const payments = useSelector((state) => state.payments);
+
   const [access, setAccess] = useState({
     tambah: false,
     hapus: false,
@@ -28,7 +29,7 @@ function PaymentsPage() {
       ? JSON.parse(localStorage.getItem('auth'))
       : {};
     const access = { tambah: false, hapus: false, edit: false };
-    Object.keys(accessPayments).forEach(function (key, index) {
+    Object.keys(accessPayments).forEach(function (key) {
       if (accessPayments[key].indexOf(role) >= 0) {
         access[key] = true;
       }
@@ -73,7 +74,7 @@ function PaymentsPage() {
 
   return (
     <Container className="mt-3">
-      <SBreadCrumb textSecound={'Payments'} />
+      <SBreadCrumb textSecond={'Payments'} />
 
       {access.tambah && (
         <Button className={'mb-3'} action={() => navigate('/payments/create')}>
@@ -96,5 +97,3 @@ function PaymentsPage() {
     </Container>
   );
 }
-
-export default PaymentsPage;
