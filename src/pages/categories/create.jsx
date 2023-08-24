@@ -31,7 +31,6 @@ export default function CategoryCreate() {
   const handleSubmit = async () => {
     setIsLoading(true);
     const res = await postData('/cms/categories', form);
-    console.log(res);
     if (res?.data?.data) {
       dispatch(
         setNotif(

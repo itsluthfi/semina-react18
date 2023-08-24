@@ -92,8 +92,6 @@ export default function TalentsCreate() {
     };
 
     const res = await postData('/cms/talents', payload);
-    console.log('res');
-    console.log(res);
     if (res?.data?.data) {
       dispatch(
         setNotif(
