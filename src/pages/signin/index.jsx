@@ -32,7 +32,14 @@ export default function PageSignin() {
     setIsLoading(true);
     const res = await postData(`/cms/auth/signin`, form);
     if (res?.data?.data) {
-      dispatch(userLogin(res.data.data.token, res.data.data.role));
+      dispatch(
+        userLogin(
+          res.data.data.token,
+          res.data.data.role,
+          res.data.data.refreshToken,
+          res.data.data.email
+        )
+      );
       setIsLoading(false);
       navigate('/');
     } else {
