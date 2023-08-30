@@ -52,7 +52,6 @@ export const fetchOrders = () => {
       };
 
       let res = await debouncedFetchOrders('/cms/orders', params);
-      console.log(res);
 
       const _temp = [];
       res.data.data.order.forEach((res) => {

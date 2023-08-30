@@ -129,8 +129,6 @@ export default function EventsCreate() {
     };
 
     const res = await postData('/cms/events', payload);
-    console.log(payload);
-    console.log(res);
 
     if (res?.data?.data) {
       dispatch(
